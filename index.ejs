@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+		html,
+		body {  /* for rwd */
+		    background-color: #fff;
+		    color: #555;
+		    font-family: 'Roboto', sans-serif;
+		    font-weight: 300;
+		    font-size: 20px;
+		    text-rendering: optimizeLegibility;
+		    /* for rwd */
+		    overflow-x: hidden;
+		}
+
+
+		.example-enter {
+		  opacity: 0.01;
+		}
+
+		.example-enter.example-enter-active {
+		  opacity: 1;
+		  transition: opacity 500ms ease-in;
+		}
+
+		.example-leave {
+		  opacity: 1;
+		}
+
+		.example-leave.example-leave-active {
+		  opacity: 0.01;
+		  transition: opacity 300ms ease-in;
+		}
+
+		.example-appear {
+		  opacity: 0.8;
+		}
+
+		.example-appear.example-appear-active {
+		  opacity: 1;
+		  transition: opacity .8s ease-out;
+		}
+    </style>
+
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
