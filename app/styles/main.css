@@ -62,12 +62,12 @@ body {  /* for rwd */
 
 .box {
     padding: 1%;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 .box p {
-    font-size: 60%;
-    line-height: 120%;
+    font-size: 80%;
+    line-height: 160%;
 }
 
 /*

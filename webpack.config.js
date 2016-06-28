@@ -13,6 +13,7 @@ var PATHS = {
         path.join(__dirname, 'node_modules', 'react-flexbox-grid'),     // include css framework here if any
         path.join(__dirname, 'node_modules', 'flexboxgrid'),            // include css framework here if any
         path.join(__dirname, 'app', 'styles', 'markdown.css'),          // our app css, it is at /app/styles
+//        path.join(__dirname, 'app', 'styles', 'github.css'),          // our app css, it is at /app/styles
         path.join(__dirname, 'app', 'styles', 'main.css')               // our app css, it is at /app/styles
     ], 
     docs: path.join(__dirname, 'app', 'docs'),

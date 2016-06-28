@@ -1,5 +1,13 @@
 import React from 'react';
 import marked from 'marked';
+import hlt from 'highlight.js';
+
+
+marked.setOptions({
+  highlight: function (code) {
+    return hlt.highlightAuto(code).value;
+  }
+});
 
 /**************************************************/
 /*** <MarkdownElement text={you_markdown}/>     ***/
@@ -21,7 +29,7 @@ module.exports = React.createClass({
         };
 
         return (
-            <div className={mdcss["markdown-body"]} styles={style} dangerouslySetInnerHTML={{__html: marked(this.props.text)}} />
+            <div className={ mdcss["markdown-body"]} styles={style} dangerouslySetInnerHTML={{__html: marked(this.props.text)}} />
         );
     }
 });
