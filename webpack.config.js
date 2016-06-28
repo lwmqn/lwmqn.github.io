@@ -76,8 +76,8 @@ switch (process.env.npm_lifecycle_event) {  // npm_lifecycle_event identifies wh
             parts.setFreeVariable('process.env.NODE_ENV', 'production'),    // [ plugin ] set up environment var to a var
             parts.extractBundle({ name: 'vendor', entries: [ 'react' ]}),   // [ plugin ] bundle vendor lib to a separated file vendor.js, and create manifest.js
             parts.minify(),                                                 // [ plugin ] ugilify javascripts
-            // parts.purifyCSS(PATHS.style)                                    // [ plugin ] extract used css
-            parts.extractCSS(PATHS.style)                                   // [ loader + plugin ] extract css to a separated file, production only
+            parts.purifyCSS(PATHS.style),                                   // [ plugin ] extract used css
+            parts.extractCSS(PATHS.app)                                   // [ loader + plugin ] extract css to a separated file, production only
         );
         break;
     default:
