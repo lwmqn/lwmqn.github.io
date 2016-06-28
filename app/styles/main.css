@@ -1,20 +1,31 @@
+html,
+body {  /* for rwd */
+    background-color: #fff;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    /* for rwd */
+    overflow-x: hidden;
+}
+
 .main-nav {
     float: right;
     list-style: none;
-    margin-top: 10px;
 }
 
 .main-nav li {
     display: inline-block;
-    margin-left: 40px;
+    margin-left: 32px;
 }
 
 .main-nav li a:link,
 .main-nav li a:visited {
-    padding: 6px 0;
+    padding: 0px 0px 6px 0;
     color: #FFF;
     text-decoration: none;
-    font-size: 90%;
+    font-size: 80%;
     border-bottom: 2px solid transparent;
     -webkit-transition: border-bottom 0.2s;
     transition: border-bottom 0.2s;
@@ -58,6 +69,7 @@
     font-size: 60%;
     line-height: 120%;
 }
+
 /*
 .box img {
     width: 100%;
@@ -65,3 +77,4 @@
     margin-bottom: 15px;
 }
 */
+

@@ -17,7 +17,6 @@ var css = require('../styles/main.css');
 
 var Home = React.createClass({
     render: function () {
-        console.log(this.props);
         return (
             <Grid fluid>
                 <Row>
@@ -25,14 +24,14 @@ var Home = React.createClass({
                         <IPSOIcon style={iconStyles} color={indigo100}/>
                         <h3>Up to 365 days/year</h3>
                         <p>
-                            Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that's your style.
+                            aaaa cook aasgain! Waaae really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that's your style.
                         </p>
                     </Col>
                     <Col className={css.box} xs={6} md={3}>
                         <MQTTIcon style={iconStyles} color={indigo100} />
                         <h3>Ready in 20 minutes</h3>
                         <p>
-                            Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that's your style.
+                            Never cook again! We really mean thsssat. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that's your style.
                         </p>
                     </Col>
                     <Col className={css.box} xs={6} md={3}>

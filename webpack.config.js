@@ -7,12 +7,13 @@ var parts = require('./lib/parts'); // separated plugins
 var config = {};                    // config for our app
 
 var PATHS = {
-    app: path.join(__dirname, 'app'),                       // app folder: source code
-    build: path.join(__dirname, 'build'),                   // build folder: bundle code
+    app: path.join(__dirname, 'app'),                                   // app folder: source code
+    build: path.join(__dirname, 'build'),                               // build folder: bundle code
     style: [
-        path.join(__dirname, 'node_modules', 'react-flexbox-grid'), // include css framework here if any
-        path.join(__dirname, 'node_modules', 'flexboxgrid'),         // include css framework here if any
-        path.join(__dirname, 'app', 'styles', 'main.css')   // our app css, it is at /app/styles
+        path.join(__dirname, 'node_modules', 'react-flexbox-grid'),     // include css framework here if any
+        path.join(__dirname, 'node_modules', 'flexboxgrid'),            // include css framework here if any
+        path.join(__dirname, 'app', 'styles', 'markdown.css'),          // our app css, it is at /app/styles
+        path.join(__dirname, 'app', 'styles', 'main.css')               // our app css, it is at /app/styles
     ], 
     docs: path.join(__dirname, 'app', 'docs'),
     img: path.join(__dirname, 'app', 'img')
@@ -24,10 +25,11 @@ var PATHS = {
 var common = {
     entry: {                            // mutiple entry points
         app: PATHS.app,                 // one is our app
-        style: PATHS.style              // the other is our style
+        //style: PATHS.style              // the other is our style
     },
     output: {
         path: PATHS.build,              // put the output to /build
+        publicPath: '/',
         filename: '[name].[hash].js',   // output filename should be given when using multiple entries
         chunkFilename: '[hash].js'      // common chunks, async loaded modules
     },
@@ -46,6 +48,10 @@ var common = {
                 query: {
                     presets: [ 'react', 'es2015' ]
                 }
+            },
+            {
+                test: /\.md$/,
+                loader: 'raw-loader',
             }
         ]
     },
@@ -68,9 +74,9 @@ switch (process.env.npm_lifecycle_event) {  // npm_lifecycle_event identifies wh
             parts.clean(PATHS.build),                                       // [ plugin ] check and clean the old build needs to be cleaned
             parts.setFreeVariable('process.env.NODE_ENV', 'production'),    // [ plugin ] set up environment var to a var
             parts.extractBundle({ name: 'vendor', entries: [ 'react' ]}),   // [ plugin ] bundle vendor lib to a separated file vendor.js, and create manifest.js
-            parts.minify(),                                              // [ plugin ] ugilify javascripts
-            parts.extractCSS(PATHS.style),                                   // [ loader + plugin ] extract css to a separated file, production only
-            parts.purifyCSS(PATHS.style)                                 // [ plugin ] extract used css
+            parts.minify(),                                                 // [ plugin ] ugilify javascripts
+            // parts.purifyCSS(PATHS.style)                                    // [ plugin ] extract used css
+            parts.extractCSS(PATHS.style)                                   // [ loader + plugin ] extract css to a separated file, production only
         );
         break;
     default:

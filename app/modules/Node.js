@@ -3,6 +3,13 @@ import NavLink from '../components/NavLink'
 
 import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 import ListNested from '../components/ListNested'
+import Content from '../components/Content'
+
+import nodeIntroRawMd from '../docs/node/01_intro.md';
+import nodeUsageRawMd from '../docs/node/02_usage.md';
+import nodeResourcesRawMd from '../docs/node/03_resources.md';
+import nodeApisRawMd from '../docs/node/04_apis.md';
+import nodeTempRawMd from '../docs/node/05_templates.md';
 
 //   titles: [ { name, link }, ... ]
 //   apis: [ { name, anchor }, ... ]
@@ -16,6 +23,11 @@ var apis = [
 ];
 
 var Node = React.createClass({
+    getInitialState: function () {
+        return {
+            rawMd: nodeIntroRawMd
+        }
+    },
     render: function () {
         return (
             <Row style={{marginTop: "20px"}}>
@@ -23,11 +35,7 @@ var Node = React.createClass({
                     <ListNested titles={titles} apis={apis} />
                 </Col>
                 <Col style={{paddingLeft: "20px" }} xs={20} md={10}>
-                    <div>
-                        This is MQTT Node page
-                        <li><NavLink to="/repos/rectjs/react-router">React Router</NavLink></li>
-                        <li><NavLink to="/repos/facebook/react">React</NavLink></li>
-                    </div>
+                    <Content rawMd={this.state.rawMd} />
                 </Col>
             </Row>
         );
