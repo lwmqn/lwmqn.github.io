@@ -22,7 +22,7 @@
 * Find a remote machine node managed by the server, and take some action to it:  
   
     ```js
-    var qnode = qserver.findNode('my_foo_client_id');
+    var qnode = qserver.find('my_foo_client_id');
 
     if (qnode) {
         qnode.readReq('humidity/0/sensorValue', function (err, rsp) {

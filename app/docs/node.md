@@ -7,46 +7,51 @@
     /********************************************/
     /*** Client Device Initialzation          ***/
     /********************************************/
-    var qnode = new MqttNode('my_foo_client_id');
+    var MqttNode = require('mqtt-node'),
+        SmartObject = require('smartobject');
 
-    // Initialize Resources that follow IPSO definition
+    var so = new SmartObject();
 
-    // We have two humidity sensors here
-    // oid = 'humidity', iid = 0
-    qnode.initResrc('humidity', 0, {
-        sensorValue: 20,    // your sensor value may be read from somewhere,
-        units: 'percent'    // the document Resources Planning Tutorial will show you how to do it.
+    // Humidity sensor - the first instance
+    so.init('humidity', 0, {    // oid = 'humidity', iid = 0
+        sensorValue: 20,
+        units: 'percent'
     });
 
-    // oid = 'humidity', iid = 1
-    qnode.initResrc('humidity', 1, {
+    // Humidity sensor - the second instance
+    so.init('humidity', 1, {    // oid = 'humidity', iid = 1
         sensorValue: 16,
         units: 'percent'
     });
 
-    // Initialize a custom Resource
-    qnode.initResrc('myObject', 0, {
+    // A custom Object with two Resources: myResrc1 and myResrc2
+    so.init('myObject', 0, {    // oid = 'myObject', iid = 0
         myResrc1: 20,
         myResrc2: 'hello world!'
     });
 
     qnode.on('ready', function () {
-        // If the registration procedure completes successfully, 'ready' will be fired
-
-        // start to run your application after registration
+        // You can start to run your local app, such as showing the sensed value on an OLED monitor.
+        // To interact with your Resources, simply use the handy APIs provided by SmartObject class.
     });
 
-    // Connect and register to a Server with an account of mqtt-shepherd
-    qnode.connect('mqtt://192.168.0.2', {
-        username: 'freebird',
-        password: 'skynyrd'
+    qnode.on('registered', function () {
+        // Your qnode is now in the netwrok. This event only fires at the first time of qnode registered to the Server.
     });
+
+    qnode.on('login', function () {
+        // Your qnode is now ready to accept remote requests from the Server. Don't worry about the 
+        // REQ/RSP things, qnode itself will handle them for you.  
+    });
+
+    // Connect and register to a Sever, that's it!
+    qnode.connect('mqtt://192.168.0.2');
     ```
   
-* Here is a quick example to show a resource value reading from a gpio. Please see [Resources Planning Tutorial](https://github.com/lwmqn/mqtt-node/blob/master/docs/rsc_plan.md) for more details.  
+* Here is a quick example to show a resource value reading from a gpio. Please see [Smart Object Resources Planning Tutorial](https://github.com/PeterEB/smartobject/blob/master/docs/resource_plan.md) for more details.  
   
     ```js
-    qnode.initResrc('temperature', 0, {
+    so.init('temperature', 0, {
         sensorValue: {
             read: function (cb) {
                 var analogVal = analogPin0.read();
