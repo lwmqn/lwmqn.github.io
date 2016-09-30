@@ -47,6 +47,12 @@ var App = React.createClass({
                 {banner}
                 <Home />
                 <div style={{margin: "2rem 0"}}></div>
+                <div style={{textAlign: "center"}}>
+                    <div style={{margin: "0 auto"}}>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/AF_zcmEePHc" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div style={{margin: "2rem 0"}}></div>
                 <Divider id="Shepherd" />
                 <div style={{margin: "2rem 0"}}></div>
 

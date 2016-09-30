@@ -55,7 +55,7 @@ var Home = React.createClass({
                         <h3>IPSO</h3>
                         <p>
                             LWMQN benefits from <a href="http://www.ipso-alliance.org/" target="_blank" style={hrefStyle2}>IPSO</a> data model, which leads to a very comprehensive way for the Client machine to organize resources and for the Server to use a path with URI-style to allocate and query resources on remote devices.
-                            Many <a href="https://github.com/lwmqn/mqtt-node#Templates" target="_blank" style={hrefStyle}>code templates</a> for common devices, i.e., temperature sensor, humidity sensor, light control, are also provided by <span style={{fontWeight: "bold"}}>mqtt-node</span>.
+                            Many <a href="https://github.com/PeterEB/smartobject/blob/master/docs/templates.md" target="_blank" style={hrefStyle}>code templates</a> for common devices, i.e., temperature sensor, humidity sensor, light control, are also provided by <span style={{fontWeight: "bold"}}>smartobject</span> module.
                         </p>
                     </Col>
                     <Col className={css.box} xs={6} md={3}>
