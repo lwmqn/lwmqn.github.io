@@ -2,14 +2,12 @@
 * How to create a mqtt-node on your machine:  
   
     ```js
-    var MqttNode = require('mqtt-node');
+    var MqttNode = require('mqtt-node'),
+        SmartObject = require('smartobject');
 
     /********************************************/
     /*** Client Device Initialzation          ***/
     /********************************************/
-    var MqttNode = require('mqtt-node'),
-        SmartObject = require('smartobject');
-
     var so = new SmartObject();
 
     // Humidity sensor - the first instance
