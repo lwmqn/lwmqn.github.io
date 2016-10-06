@@ -31,7 +31,7 @@ var App = React.createClass({
 
                         <h1 style={{ letterSpacing: "1px"}}>Lightweight MQTT Machine Network</h1>
                         <p style={{fontStyle: "italic", fontSize: "120%"}}>Build your machine network with MQTT, IPSO, LWM2M, and Node.js</p>
-
+                        <p style={{fontSize: "120%"}}>Full-stack IoT development from machine to webapp with JavaScript and Node.js</p>
                         <div style={{marginTop: "2rem"}}>
                             <a href="#Shepherd" className={css["btn"]}>Create Your Machine Server</a>
                             <a href="#Node" className={css["btn"]}>Design Your Machine Nodes</a>

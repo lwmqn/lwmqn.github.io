@@ -6,7 +6,7 @@
         SmartObject = require('smartobject');
 
     /********************************************/
-    /*** Client Device Initialzation          ***/
+    /*** Smart Object Initialzation           ***/
     /********************************************/
     var so = new SmartObject();
 
@@ -28,6 +28,11 @@
         myResrc2: 'hello world!'
     });
 
+    /********************************************/
+    /*** Client Device Initialzation          ***/
+    /********************************************/
+    var qnode = new MqttNode('my_foo_client_id', so);
+
     qnode.on('ready', function () {
         // You can start to run your local app, such as showing the sensed value on an OLED monitor.
         // To interact with your Resources, simply use the handy APIs provided by SmartObject class.
@@ -46,7 +51,7 @@
     qnode.connect('mqtt://192.168.0.2');
     ```
   
-* Here is a quick example to show a resource value reading from a gpio. Please see [Smart Object Resources Planning Tutorial](https://github.com/PeterEB/smartobject/blob/master/docs/resource_plan.md) for more details.  
+* Here is a quick example to show a resource value reading from a gpio. You can use this pattern to abstract hardware functionality exported by jonny-five, mraa, firmata, bonescript, etc. Please see [Smart Object Resources Planning Tutorial](https://github.com/PeterEB/smartobject/blob/master/docs/resource_plan.md) for more details.  
   
     ```js
     so.init('temperature', 0, {
