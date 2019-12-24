@@ -78,6 +78,7 @@ qserver.start(function (err) {    // start the server
       <br>
       <h3 style="font-weight:bold;">How to create a <strong>@lwmqn/qnode</strong></h3>
       <br>
+      Please see <a target="_blank" href="https://github.com/lwmqn/smartobject/blob/master/docs/resource_plan.md">Smart Object Resources Planning Tutorial</a> for more details
       <br>
 
       <pre v-highlightjs><code class="javascript" style="text-align:left;background:transparent;">
@@ -105,6 +106,18 @@ so.init('myObject', 0, {    // oid = 'myObject', iid = 0
   myResrc2: 'hello world!'
 });
 
+// Example how to show a resource value reading from a gpio
+// You can use this pattern to abstract hardware functionality exported by johnny-five, mraa, firmata, bonescript, etc.
+so.init('temperature', 0, {
+  sensorValue: {
+    read: function (cb) {
+      var analogVal = analogPin0.read();
+      cb(null, analogVal);
+    }
+  },
+  units: 'cel'
+});
+
 // Initialize the device with this smart objects set
 const qnode = new MqttNode('my_foo_client_id', so);
 
@@ -125,15 +138,10 @@ qnode.on('login', function () {
 qnode.connect('mqtt://192.168.0.2');
 // Now the server is going to automatically tackle most of the network managing things
     </code></pre>
+    <br><br>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-
-}
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
