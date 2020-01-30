@@ -34,7 +34,7 @@
         <div class="content has-text-centered">
               Released under the <a href="http://opensource.org/licenses/mit-license.php">MIT License</a>
               <br>
-              Copyright © 2016-2019 <strong>LwMQN</strong> project, sivann, and other contributors
+              Copyright © 2016-2020 <strong>LwMQN</strong> project, sivann, and other contributors
         </div>
       </footer>
   </div>
